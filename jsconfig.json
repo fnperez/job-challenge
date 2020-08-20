@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@statics/*": "./statics/*",
+            "@screens/*": "./src/views/screens/*",
+            "@components/*": "./src/views/components/*",
+            "@layouts/*": "./src/views/layouts/*",
+            "@styles/*": "./src/views/styles/*"
+        }
+    },
+    "exclude": ["node_modules", "build"]
+}

@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  server:
+    image: node:latest
+    working_dir: /var/www/app
+    command: ['yarn', 'start:dev']
+    stdin_open: true
+    ports:
+      - ${PORT}:3000
+    volumes:
+      - ./:/var/www/app
+volumes: 
+  server:
+    driver: local
