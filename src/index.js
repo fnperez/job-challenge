@@ -8,14 +8,14 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './store';
 
 render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <PersistGate persistor={persistor} loading={null}>
-                <App />
-            </PersistGate>
-        </Provider>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate persistor={persistor} loading={null}>
+        <App />
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 serviceWorker.register();

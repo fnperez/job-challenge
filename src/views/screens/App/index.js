@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from '@statics/logo.svg';
 import './App.css';
+import { connectScreen } from '@lib/connect-screen';
 
-function App() {
+export function App(props) {
   return (
     <div className="App">
       <header className="App-header">
@@ -23,4 +24,6 @@ function App() {
   );
 }
 
-export default App;
+export default connectScreen(state => ({
+  entities: state.entities
+}))(App);

@@ -1,13 +1,25 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@statics/*": "./statics/*",
-            "@screens/*": "./src/views/screens/*",
-            "@components/*": "./src/views/components/*",
-            "@layouts/*": "./src/views/layouts/*",
-            "@styles/*": "./src/views/styles/*"
-        }
-    },
-    "exclude": ["node_modules", "build"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@statics/*": "./statics/*",
+      "@actions/*": "./src/actions/*",
+      "@entities/*": "./src/entities/*",
+      "@reducers/*": "./src/reducers/*",
+      "@repositories/*": "./src/repositories/*",
+      "@services/*": "./src/services/*",
+      "@lib/*": "./src/lib/*",
+
+      "@screens/*": "./src/views/screens/*",
+      "@components/*": "./src/views/components/*",
+      "@layouts/*": "./src/views/layouts/*",
+      "@styles/*": "./src/views/styles/*",
+      
+      "@config": "./src/config/config.js"
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }
