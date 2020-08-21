@@ -3,13 +3,13 @@ import MovieListItem from '../MovieListItem';
 import { Row, Col, Spinner, Alert } from 'react-bootstrap';
 import './index.scss';
 
-const col = (movie, ...classNames) => (
-    <Col className={["MovieList_item", classNames]} key={movie.id}>
+const col = (movie) => (
+    <Col className={"MovieList_item"} key={movie.id}>
         <MovieListItem movie={movie} />
     </Col>
 );
 
-const MovieList = ({movies = [], loading, limit = 9, headerTitle, headerLinkTo, headerLinkText}) => {
+const MovieList = ({movies = [], loading, headerTitle}) => {
     if (loading) {
         return (
             <Spinner animation="grow" />
@@ -24,8 +24,7 @@ const MovieList = ({movies = [], loading, limit = 9, headerTitle, headerLinkTo, 
         );
     }
 
-    const featured = movies.shift();
-    const items = movies.slice(0, limit - 1).map(col);
+    const items = movies.map(col);
     return (
         <div className="MovieList">
             <div className="MovieList_header">
@@ -33,17 +32,8 @@ const MovieList = ({movies = [], loading, limit = 9, headerTitle, headerLinkTo, 
                     {headerTitle}
                 </div>
             </div>
-            <Row>
-                <Col md={4}>
-                    <Row>
-                        {col(featured, "MovieList_item--featured")}
-                    </Row>
-                </Col>
-                <Col md={8}>
-                    <Row xs={2} md={4}>
-                        {items}
-                    </Row>
-                </Col>
+            <Row xs={2} md={4}>
+                {items}
             </Row>
         </div>
     )

@@ -5,7 +5,7 @@ import { findByIds } from '@lib/entities-utils';
 import MovieList from '@components/MovieList';
 import Header from '@components/Header';
 import { Container } from 'react-bootstrap';
-import { FaGripfire } from 'react-icons/fa';
+import { MdLocalMovies } from 'react-icons/md';
 
 export class App extends Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ export class App extends Component {
         <Header />
         <Container>
           <MovieList
-            headerTitle={<><FaGripfire fill="rgb(255, 40, 0)" /> Popular movies</>}
+            headerTitle={<><MdLocalMovies fill="rgb(255, 40, 0)" /> Movies</>}
             headerLinkTo="/"
             headerLinkText="View all"
             loading={discovery.sending} 
