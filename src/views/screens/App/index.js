@@ -8,11 +8,22 @@ import { Container } from 'react-bootstrap';
 import { MdLocalMovies } from 'react-icons/md';
 
 export class App extends Component {
-  componentDidMount() {
-    const { success } = this.props.state.discovery;
+  state = {
+    filtering: false
+  };
 
-    if (! success)
-      this.props.movies.discover();
+  componentDidMount() {
+    this.props.discovery.discover();
+  }
+
+  _filter = (stars) => {
+    this.setState({filtering: true});
+
+    setTimeout(() => {
+      this.props.discovery.filterByRating(stars)
+        .finally(() => this.setState({filtering: false}));
+    }, 2000);
+    
   }
 
   render() {
@@ -24,9 +35,9 @@ export class App extends Component {
         <Container>
           <MovieList
             headerTitle={<><MdLocalMovies fill="rgb(255, 40, 0)" /> Movies</>}
-            headerLinkTo="/"
-            headerLinkText="View all"
-            loading={discovery.sending} 
+            onFilter={this._filter}
+            filterStars={discovery.filter.stars}
+            loading={discovery.request.sending || this.state.filtering} 
             movies={findByIds(movies, discovery.ids)} 
           />
         </Container>

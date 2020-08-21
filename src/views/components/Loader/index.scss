@@ -1,0 +1,30 @@
+.Loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -15px;
+    margin-right: -15px;
+    z-index: 9999;
+    animation: animate 1s infinite;
+
+    &--hide {
+        visibility: hidden;
+    }
+}
+
+@keyframes animate { 
+    0% { 
+        background-color: transparentize($color: #000000, $amount: .4);
+    } 
+    50% {
+        background-color: transparentize($color: #000000, $amount: .8);
+    }
+    100% { 
+        background-color: transparentize($color: #000000, $amount: .4);
+    } 
+} 

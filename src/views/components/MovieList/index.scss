@@ -1,4 +1,7 @@
 .MovieList {
+    &_list {
+        position: relative;
+    }
     &_header {
         display: flex;
         flex: 1;
@@ -7,6 +10,15 @@
         margin-right: -10px;
         margin-top: 20px;
         margin-bottom: 20px;
+    }
+
+    &_filter {
+        display: flex;
+        align-items: center;
+
+        >span {
+            margin-right: 15px;
+        }
     }
 
     &_title {
