@@ -33,18 +33,22 @@ export default class Movie {
     this.genre_ids = genre_ids;
   }
 
+  get image() {
+    return this.poster_path ?? this.backdrop_path ?? 'https://media.comicbook.com/files/img/default-movie.png';
+  }
+
   static fromJson(props) {
     return new Movie(
       props.id,
       props.original_title,
       props.original_language,
       props.title,
-      props.backdrop_path,
+      `https://image.tmdb.org/t/p/w500${props.backdrop_path}`,
       props.popularity,
       props.vote_count,
       props.video,
       props.vote_average,
-      props.poster_path,
+      `https://image.tmdb.org/t/p/w500${props.poster_path}`,
       props.adult,
       props.overview,
       moment(props.release_date),

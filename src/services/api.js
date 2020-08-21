@@ -1,10 +1,11 @@
 import AbstractApi from './abstract-api';
 import { waitDelay } from '@lib/timer-utils';
 import config from '@config';
+import Axios from 'axios';
 
 export default class Api extends AbstractApi {
-	constructor(fetchBackend = fetch) {
-		super(fetchBackend);
+	constructor() {
+		super(Axios);
 
 		this.__authenticationToken = undefined;
 		this.__apiUrl = undefined;
@@ -28,7 +29,7 @@ export default class Api extends AbstractApi {
 		this.__authenticationToken = value;
 
 		this.authorization = this.__authenticationToken
-			? `Bearer ${this.__authenticationToken.token}`
+			? `Bearer ${this.__authenticationToken}`
 			: undefined;
 	}
 
@@ -42,14 +43,14 @@ export default class Api extends AbstractApi {
 		headers = {},
 		retryCount = 0
 	) {
-		const endpoint = this.apiUrl ? this.apiUrl + '/' + url : url;
+		const endpoint = this.apiUrl ? this.apiUrl + url : url;
 
 		return super.__request(method, endpoint, body, headers)
 			.catch((err) => {
 				if (Api.__isExtraordinaryError(err) && retryCount < 3) {
 					return waitDelay(1000 * (2 ** retryCount))
 						.then(
-							() => this.__request(method, endpoint, body, headers, retryCount + 1)
+							() => this.__request(method, url, body, headers, retryCount + 1)
 						);
 				}
 

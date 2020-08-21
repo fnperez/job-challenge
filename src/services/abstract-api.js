@@ -34,9 +34,9 @@ export default class AbstractApi {
 	
 	__request(method, url, body = undefined, headers = {}) {
 		return this
-			.fetch(`${this.__apiUrl}${url}`, this.__options(method, body, headers))
+			.fetch(url, this.__options(method, body, headers))
 			.then(response => ApiResponse.fromFetchResponse(response))
-			.then((apiResponse) => {
+			.then(apiResponse => {
 				if (!apiResponse.isOk) { throw apiResponse; }
 				return apiResponse;
 			});

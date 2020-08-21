@@ -18,6 +18,7 @@ const middlewares = [
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: []
 };
 
 const persistedRootReducer = persistReducer(persistConfig, rootReducer);

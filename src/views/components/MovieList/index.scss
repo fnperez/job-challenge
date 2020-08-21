@@ -1,0 +1,26 @@
+.MovieList {
+    &_header {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    &_title {
+        font-size: 20px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+    }
+
+    &_item {
+        padding: 5px;
+
+        &--featured {
+            padding: 5px 6.5px;
+        }
+    }
+}

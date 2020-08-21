@@ -9,6 +9,6 @@ export default class DiscoverRepository {
         return this
             .api
             .get('discover/movie', params)
-            .then(response => response.results.map(Movie.fromJson))
+            .then(response => response.json.results.map(Movie.fromJson))
     }
 }

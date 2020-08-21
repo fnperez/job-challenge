@@ -2,7 +2,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@statics/*": "./statics/*",
       "@actions/*": "./src/actions/*",
       "@entities/*": "./src/entities/*",
       "@reducers/*": "./src/reducers/*",
@@ -15,7 +14,8 @@
       "@layouts/*": "./src/views/layouts/*",
       "@styles/*": "./src/views/styles/*",
       
-      "@config": "./src/config/config.js"
+      "@config": "./src/config/config.js",
+      "@statics/*": "./statics/*"
     }
   },
   "exclude": [

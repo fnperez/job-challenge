@@ -5,18 +5,12 @@ export default class ApiResponse {
 	}
 
 	static fromFetchResponse(response) {
-		return response.json()
-			.then(
-				json => new ApiResponse(response, json)
-			)
-			.catch(
-				() => new ApiResponse(response, undefined)
-			);
+		return new ApiResponse(response, response.data)
 	}
 
 	get status() { return this.response.status; }
 	get statusText() { return this.response.statusText; }
 	get headers() { return this.response.headers; }
 
-	get isOk() { return this.response.ok || this.response.status === 304; }
+	get isOk() { return this.response.status.between(200, 299)  || this.response.status === 304; }
 }

@@ -1,0 +1,21 @@
+.MovieListItem {
+
+    &_overlay {
+        background-color: transparentize($color: #000000, $amount: .5);
+        color: #FFF;
+        opacity: 0;
+        transition: opacity 500ms;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+
+        span {
+            font-weight: 600;
+            color: transparentize($color: #FFF, $amount: .25);
+        }
+        &--show {
+            opacity: 1;
+        }
+    }
+}
