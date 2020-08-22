@@ -48,6 +48,8 @@ class MovieList extends PureComponent {
     }
 
     _filter = (stars) => {
+        if (stars === this.state.stars) return;
+        
         this.setState({loading: true});
 
         setTimeout(() => {

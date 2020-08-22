@@ -21,6 +21,10 @@ export const discover = (searchParams = {}) => (dispatch, _, api) => {
 }
 
 export const search = (query) => (dispatch, _, api) => {
+    if (! query) {
+        return dispatch(discover());
+    }
+    
     const repository = new MoviesRepository(api);
     const promise = repository.search({query});
 
