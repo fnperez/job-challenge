@@ -31,10 +31,24 @@ export default class Movie {
     this.overview = overview;
     this.release_date = release_date;
     this.genre_ids = genre_ids;
+
+    this.setImage();
   }
 
-  get image() {
-    return this.poster_path ?? this.backdrop_path ?? 'https://media.comicbook.com/files/img/default-movie.png';
+  setImage() {
+    if (this.poster_path) {
+      this.image = `https://image.tmdb.org/t/p/w500/${this.poster_path}`;
+
+      return;
+    }
+
+    if (this.backdrop_path) {
+      this.image = `https://image.tmdb.org/t/p/w500/${this.backdrop_path}`;
+      
+      return;
+    }
+
+    this.image = 'https://media.comicbook.com/files/img/default-movie.png';
   }
 
   static fromJson(props) {
@@ -43,12 +57,12 @@ export default class Movie {
       props.original_title,
       props.original_language,
       props.title,
-      `https://image.tmdb.org/t/p/w500${props.backdrop_path}`,
+      props.backdrop_path,
       props.popularity,
       props.vote_count,
       props.video,
       props.vote_average,
-      `https://image.tmdb.org/t/p/w500${props.poster_path}`,
+      props.poster_path,
       props.adult,
       props.overview,
       moment(props.release_date),
