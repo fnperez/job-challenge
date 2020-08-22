@@ -1,8 +1,6 @@
 import types from "../types"
 import DiscoverRepository from "@repositories/discover-repository"
 import { addMovies } from "../movies/add";
-import { findByIds } from "@lib/entities-utils";
-import { convert } from '@lib/rating-utils';
 import { setMovies } from "./add";
 
 export const discover = (searchParams = {}) => (dispatch, _, api) => {
@@ -20,25 +18,4 @@ export const discover = (searchParams = {}) => (dispatch, _, api) => {
             }
         })
     }); 
-}
-
-const filter = async (stars, state, dispatch) => {
-    const ids = state.ui.discovery.request.ids;
-    const movies = findByIds(state.entities.movies, ids)
-                    .filter(movie => convert(10, 5)(movie.vote_average) === stars);
-
-    dispatch(setMovies(movies));
-    
-    return {
-        stars
-    }
-}
-
-export const filterByRating = (stars) => (dispatch, store) => {
-    const state = store();
-
-    return dispatch({
-        type: types.DISCOVER_FILTER,
-        promise: filter(stars, state, dispatch)
-    })
 }
