@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import MovieListItem from '../MovieListItem';
 import Loader from '../Loader';
-import { Row, Col, Alert } from 'react-bootstrap';
+import { Row, Col, Alert, Button } from 'react-bootstrap';
 import './index.scss';
 import ReactStars from 'react-stars';
 import { convert } from '@lib/rating-utils';
+import { BsFillTrashFill } from 'react-icons/bs';
 
 class MovieList extends PureComponent {
     state = {
@@ -12,7 +13,7 @@ class MovieList extends PureComponent {
         filtered: [],
         stars: 0,
         loading: false,
-    }
+    };
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
@@ -47,10 +48,16 @@ class MovieList extends PureComponent {
         )
     }
 
+    _reset = () => this.setState({
+        filtered: this.state.movies,
+        stars: 0,
+        loading: false,
+    });
+
     _filter = (stars) => {
         if (stars === this.state.stars) return;
         
-        this.setState({loading: true});
+        this.setState({loading: true, stars});
 
         setTimeout(() => {
             const { movies } = this.state;
@@ -59,7 +66,6 @@ class MovieList extends PureComponent {
     
             this.setState({
                 filtered,
-                stars,
                 loading: false,
             });
         }, 400)
@@ -84,6 +90,9 @@ class MovieList extends PureComponent {
                             value={stars}
                             onChange={this._filter}
                         />
+                        <Button style={{ marginLeft: 5 }} variant="dark" onClick={this._reset}>
+                            <BsFillTrashFill />
+                        </Button>
                     </div>
                 </div>
                 <div className="MovieList_list">
