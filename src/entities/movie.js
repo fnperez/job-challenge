@@ -42,13 +42,31 @@ export default class Movie {
       return;
     }
 
-    if (this.backdrop_path) {
-      this.image = `https://image.tmdb.org/t/p/w500/${this.backdrop_path}`;
-      
-      return;
-    }
-
     this.image = 'https://media.comicbook.com/files/img/default-movie.png';
+  }
+
+  backdrop(size = 'original') {
+    const sizes = {
+      small: 'w300',
+      normal: 'w500',
+      big: 'w780',
+      bigger: 'w1280',
+      original: 'original',
+    };
+
+    return `https://image.tmdb.org/t/p/${sizes[size] ?? sizes['original']}/${this.backdrop_path}`;
+  }
+
+  poster(size = 'original') {
+    const sizes = {
+      smal: "w185",
+      medium: "w342",
+      normal: "w500",
+      big: "w780",
+      original: "original"
+    };
+
+    return `https://image.tmdb.org/t/p/${sizes[size] ?? sizes['original']}/${this.poster_path}`;
   }
 
   static fromJson(props) {

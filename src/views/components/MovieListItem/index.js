@@ -5,10 +5,11 @@ import './index.scss';
 import { convert } from '@lib/rating-utils';
 import routes from '@routes';
 import { Link } from 'react-router-dom';
+import { slugify } from '@lib/str-utils';
 
 const MovieListItem = ({movie}) => {
     return (
-        <Card className="MovieListItem" as={Link} to={routes.route('MOVIE_DETAIL', {id: movie.id})}>
+        <Card className="MovieListItem" as={Link} to={routes.route('MOVIE_DETAIL', {id: movie.id, slug: slugify(movie.title)})}>
             <Card.Img src={movie.image} alt={movie.title} />
             <Card.ImgOverlay className="MovieListItem_overlay">
                 <Card.Text as="span">{movie.release_date.format('Y')}</Card.Text>

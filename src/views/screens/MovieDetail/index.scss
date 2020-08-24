@@ -1,0 +1,44 @@
+.MovieDetail {
+    &_header {
+        max-height: 680px;
+        overflow: hidden;
+        position: relative;
+        z-index: -1;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &_body {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: transparentize($color: #000, $amount: .6);
+        margin-top: -30%;
+        color: #FFF;
+    }
+
+    &_poster {
+        max-width: 100%;
+        -webkit-box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.75);
+
+        margin-bottom: 30px;
+    }
+
+    &_title {
+        font-size: 22px;
+
+        span {
+            margin-left: 5px;
+            font-size: 15px;
+            color: #CCC;
+        }
+    }
+    &_subtitle {
+        color: #ccc;
+        margin: 10px 0;
+    }
+}

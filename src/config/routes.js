@@ -5,7 +5,7 @@ import NotFound from '@screens/NotFound';
 
 const routes = {
     HOME: '/',
-    MOVIE_DETAIL: '/movies/:id',
+    MOVIE_DETAIL: '/movies/:id-:slug',
 
     NOT_FOUND: '/404',
     FATAL_ERROR: '/500',
