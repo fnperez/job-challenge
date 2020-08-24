@@ -1,7 +1,8 @@
 {
-  "name": "project",
-  "version": "0.1.0",
+  "name": "job-challenge",
+  "version": "1.0.0",
   "private": true,
+  "author": {"name": "Facundo Perez", "email": "facuperez.net@gmail.com", "url": "https://www.linkedin.com/in/fnperez/"},
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
