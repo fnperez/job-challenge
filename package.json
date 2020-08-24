@@ -2,7 +2,11 @@
   "name": "job-challenge",
   "version": "1.0.0",
   "private": true,
-  "author": {"name": "Facundo Perez", "email": "facuperez.net@gmail.com", "url": "https://www.linkedin.com/in/fnperez/"},
+  "author": {
+    "name": "Facundo Perez",
+    "email": "facuperez.net@gmail.com",
+    "url": "https://www.linkedin.com/in/fnperez/"
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
@@ -31,8 +35,7 @@
   },
   "scripts": {
     "start:dev": "react-app-rewired start",
-    "prestart": "npm install",
-    "start": "npm run build && serve -s build",
+    "start": "serve -s build",
     "build": "react-app-rewired build",
     "eject": "react-scripts eject"
   },

@@ -9,4 +9,4 @@ In order to run this project, you need to:
     1. Run `cp .env.example`
     2. Set  themoviedb API KEY and API TOKEN
     3. Run `npm install`
-    4. Run `npm run start:dev` or `npm run start` for prod build. 
+    4. Run `npm run start:dev` or `npm run build && npm run start` for prod build.
