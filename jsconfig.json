@@ -15,6 +15,7 @@
       "@styles/*": "./src/views/styles/*",
       
       "@config": "./src/config/config.js",
+      "@routes": "./src/config/routes.js",
       "@statics/*": "./statics/*"
     }
   },

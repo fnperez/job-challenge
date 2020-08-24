@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import './index.scss';
 import { connect } from '@lib/connect';
 import Header from '@components/Header';
 import { Container } from 'react-bootstrap';
 import Discovery from '@components/Discovery';
 
-export class App extends Component {
+export class Home extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <Header onSearch={this.props.discovery.search} />
         <Container>
           <Discovery />
@@ -18,4 +17,4 @@ export class App extends Component {
   }
 }
 
-export default connect()(App);
+export default connect()(Home);

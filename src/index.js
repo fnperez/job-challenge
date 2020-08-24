@@ -1,22 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { PersistGate } from 'redux-persist/integration/react';
 import './overrides';
 import '@styles/global.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import App from '@screens/App';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux';
-import { store, persistor } from './store';
+import store from './store';
+import Root from '@screens/root';
 
 render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistor} loading={null}>
-        <App />
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
+  <Root store={store} />
+  ,
   document.getElementById('root')
 );
 

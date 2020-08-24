@@ -23,4 +23,11 @@ export default class MoviesRepository {
             .get(`search/movie?${queryString}`)
             .then(response => response.json.results.map(Movie.fromJson))
     }
+
+    find = async (id) => {
+        return this
+            .api
+            .get(`/movie/${id}`)
+            .then(response => Movie.fromJson(response.json))
+    }
 }

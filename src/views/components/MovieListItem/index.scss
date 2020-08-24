@@ -16,7 +16,7 @@
             color: transparentize($color: #FFF, $amount: .25);
         }
 
-        &--show {
+        &:hover {
             opacity: 1;
         }
     }

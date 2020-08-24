@@ -38,6 +38,7 @@ export default class AbstractApi {
 			.then(response => ApiResponse.fromFetchResponse(response))
 			.then(apiResponse => {
 				if (!apiResponse.isOk) { throw apiResponse; }
+				
 				return apiResponse;
 			});
 	}

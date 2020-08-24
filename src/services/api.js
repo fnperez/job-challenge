@@ -55,6 +55,6 @@ export default class Api extends AbstractApi {
 				}
 
 				throw err;
-			});
+			})
 		}
 }
